@@ -1,10 +1,8 @@
 import { motion } from "framer-motion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { GraduationCap } from "lucide-react";
 
 export default function About() {
-  // Animation variants for left-right split
-
   const leftVariants = {
     hidden: { opacity: 0, x: -100 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
@@ -18,6 +16,20 @@ export default function About() {
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const headingVariants = {
+    hidden: { opacity: 0, scale: 0.8, y: -30 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        type: "spring" as const,
+        bounce: 0.3,
+      },
+    },
   };
 
   const skillCategories = [
@@ -67,35 +79,30 @@ export default function About() {
       id="about"
       className="w-full min-h-screen bg-black text-white flex justify-center relative overflow-hidden pt-20 pb-10"
     >
-      {/* Background: Subtle waves at top and sparkles */}
-      <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-black to-black"></div>
+      {/* Background: Subtle gradient and sparkles */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-red-900/20 to-black"></div>
       <div className="absolute inset-0">
-        <svg
-          className="absolute top-0 w-[200%] h-1/2 wave-bg"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="rgba(239, 68, 68, 0.1)"
-            d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,138.7C672,128,768,160,864,181.3C960,203,1056,213,1152,197.3C1248,181,1344,139,1392,117.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,0,0Z"
-          />
-        </svg>
-        {[...Array(5)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-0.5 h-0.5 bg-red-400 rounded-full opacity-30"
-            initial={{ x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight }}
+            className="absolute w-2 h-2 bg-red-400 rounded-full opacity-50"
+            initial={{
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+              scale: 0,
+            }}
             animate={{
               x: [Math.random() * window.innerWidth, Math.random() * window.innerWidth],
               y: [Math.random() * window.innerHeight, Math.random() * window.innerHeight],
-              scale: [0.3, 0.8, 0.3],
-              opacity: [0.1, 0.5, 0.1],
+              scale: [0.3, 1.2, 0.3],
+              opacity: [0.2, 0.7, 0.2],
             }}
             transition={{
-              duration: Math.random() * 10 + 15,
+              duration: Math.random() * 6 + 6,
               repeat: Infinity,
-              repeatType: "reverse",
+              repeatType: "reverse" as const,
               ease: "easeInOut",
+              delay: Math.random() * 2,
             }}
           />
         ))}
@@ -104,28 +111,33 @@ export default function About() {
       <div className="max-w-7xl w-full px-6 grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 items-center relative z-10">
         {/* Left: Centered Portrait Photo */}
         <motion.div
-            variants={leftVariants}
-            initial="hidden"
-            animate="visible"
-            // Add this to prevent re-animation on updates
-            key="portrait-image"
-            className="flex justify-center"
-            >
-            <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-red-500 neon-pulse overflow-hidden group">
-                <motion.img
-                src="/myImage.jpg"
-                alt="Najad Mohommed"
-                className="w-full h-full object-contain scale-110"
-                whileHover={{ rotate: [0, 5, -5, 0], transition: { duration: 0.5 } }}
-                />
-            </div>
-            </motion.div>
+          variants={leftVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.3 }}
+          className="flex justify-center"
+        >
+          <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-red-500 neon-pulse overflow-hidden group">
+            <motion.img
+              src="/myImage.jpg"
+              alt="Najad Mohommed"
+              className="w-full h-full object-contain scale-110"
+              whileHover={{ rotate: [0, 5, -5, 0], transition: { duration: 0.5 } }}
+            />
+          </div>
+        </motion.div>
 
         {/* Right: Tabs with Summary, Education, Skills */}
-        <motion.div variants={rightVariants} initial="hidden" animate="visible" className="space-y-6">
-          <h2 className="text-4xl font-bold text-red-500 text-center md:text-left">
+        <motion.div variants={rightVariants} initial="hidden" whileInView="visible" viewport={{ amount: 0.3 }} className="space-y-6">
+          <motion.h2
+            className="text-4xl font-bold text-red-500 text-center md:text-left"
+            variants={headingVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.3 }}
+          >
             Who I Am
-          </h2>
+          </motion.h2>
 
           <Tabs defaultValue="summary" className="w-full">
             <TabsList className="grid grid-cols-3 w-full max-w-md mx-auto md:mx-0 bg-black/50 backdrop-blur-md">
@@ -188,7 +200,8 @@ export default function About() {
                       key={index}
                       variants={cardVariants}
                       initial="hidden"
-                      animate="visible"
+                      whileInView="visible"
+                      viewport={{ amount: 0.3 }}
                       transition={{ delay: index * 0.3 }}
                       className="p-6 bg-black/50 backdrop-blur-md rounded-lg flex items-start gap-4"
                     >
@@ -212,7 +225,6 @@ export default function About() {
                   transition={{ duration: 0.5 }}
                   className="p-6 bg-black/50 backdrop-blur-md rounded-lg"
                 >
-                  
                   {skillCategories.map((category, index) => (
                     <div key={index} className="mb-4">
                       <h3 className="text-xl font-semibold text-red-500 mb-2">{category.category}</h3>
