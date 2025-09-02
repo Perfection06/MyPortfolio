@@ -1,0 +1,104 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* matches navbar height */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 6s infinite;
+}
+
+/* Add to global CSS */
+@keyframes sparkle {
+  0% { transform: scale(0.3); opacity: 0.1; }
+  50% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(0.3); opacity: 0.1; }
+}
+
+/* Add to global CSS */
+@keyframes wave-hand {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(15deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-15deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.wave-hand {
+  animation: wave-hand 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes wave-bg {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.wave-bg {
+  animation: wave-bg 20s linear infinite;
+}
+
+@keyframes underline-slide {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+.underline-slide {
+  position: relative;
+}
+
+.underline-slide::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #f87171; /* Tailwind red-400 */
+  transition: width 0.3s ease;
+}
+
+.underline-slide:hover::after {
+  width: 100%;
+}
+
+/* Add to global CSS */
+@keyframes neon-pulse {
+  0% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.7); }
+  100% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.3); }
+}
+
+.neon-pulse {
+  animation: neon-pulse 2s infinite;
+}
+
+@keyframes wave-bg {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.wave-bg {
+  animation: wave-bg 20s linear infinite;
+}
+
+@keyframes sparkle {
+  0% { transform: scale(0.3); opacity: 0.1; }
+  50% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(0.3); opacity: 0.1; }
+}
