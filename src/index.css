@@ -23,14 +23,6 @@ body, html {
   animation: bounce-slow 6s infinite;
 }
 
-/* Add to global CSS */
-@keyframes sparkle {
-  0% { transform: scale(0.3); opacity: 0.1; }
-  50% { transform: scale(0.8); opacity: 0.5; }
-  100% { transform: scale(0.3); opacity: 0.1; }
-}
-
-/* Add to global CSS */
 @keyframes wave-hand {
   0% { transform: rotate(0deg); }
   25% { transform: rotate(15deg); }
@@ -38,7 +30,6 @@ body, html {
   75% { transform: rotate(-15deg); }
   100% { transform: rotate(0deg); }
 }
-
 .wave-hand {
   animation: wave-hand 2s ease-in-out infinite;
   transform-origin: center;
@@ -48,20 +39,23 @@ body, html {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
 .wave-bg {
   animation: wave-bg 20s linear infinite;
+}
+
+@keyframes sparkle {
+  0% { transform: scale(0.3); opacity: 0.1; }
+  50% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(0.3); opacity: 0.1; }
 }
 
 @keyframes underline-slide {
   0% { width: 0; }
   100% { width: 100%; }
 }
-
 .underline-slide {
   position: relative;
 }
-
 .underline-slide::after {
   content: '';
   position: absolute;
@@ -72,33 +66,31 @@ body, html {
   background-color: #f87171; /* Tailwind red-400 */
   transition: width 0.3s ease;
 }
-
 .underline-slide:hover::after {
   width: 100%;
 }
 
-/* Add to global CSS */
 @keyframes neon-pulse {
   0% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.3); }
   50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.7); }
   100% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.3); }
 }
-
 .neon-pulse {
   animation: neon-pulse 2s infinite;
 }
 
-@keyframes wave-bg {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.wave-bg {
-  animation: wave-bg 20s linear infinite;
-}
-
-@keyframes sparkle {
-  0% { transform: scale(0.3); opacity: 0.1; }
-  50% { transform: scale(0.8); opacity: 0.5; }
-  100% { transform: scale(0.3); opacity: 0.1; }
-}
+/* Skill icon brand colors */
+.icon-html { fill: #E34F26; }
+.icon-css { fill: #1572B6; }
+.icon-javascript { fill: #F7DF1E; }
+.icon-php { fill: #777BB4; }
+.icon-python { fill: #3776AB; }
+.icon-csharp { fill: #239120; }
+.icon-java { fill: #007396; }
+.icon-cpp { fill: #00599C; }
+.icon-bootstrap { fill: #7952B3; }
+.icon-tailwind { fill: #06B6D4; }
+.icon-react { fill: #61DAFB; }
+.icon-laravel { fill: #FF2D20; }
+.icon-dotnet { fill: #512BD4; }
+.icon-mongodb { fill: #47A248; }
