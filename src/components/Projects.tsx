@@ -24,8 +24,8 @@ export default function Projects() {
         { name: "PHP", icon: "/php.png" },
         { name: "Bootstrap", icon: "/bootstrap.png" },
       ],
-      screenshots: [], // Add paths if available, e.g., ["/school1.jpg", "/school2.jpg"]
-      sourceCode: "#", // Replace with actual GitHub link
+      screenshots: ["/SMS/Login.png", "/SMS/Admin Panel.png", "/SMS/Teacher Dashboard.png", "/SMS/Student Dashboard.png"], // Add paths if available, e.g., ["/school1.jpg", "/school2.jpg"]
+      sourceCode: "https://github.com/Perfection06/School-Management-System.git", 
     },
     {
       title: "Theater Management System",
@@ -39,8 +39,8 @@ export default function Projects() {
         { name: "PHP", icon: "/php.png" },
         { name: "MySQL", icon: "/MySQL.png" },
       ],
-      screenshots: [], // Add paths if available
-      sourceCode: "#", // Replace with actual GitHub link
+      screenshots: ["/savoyCinema/Admin Panel.jpg", "/savoyCinema/Home.jpg", "/savoyCinema/Login.png", "/savoyCinema/Movie Booking.png"], // Add paths if available
+      sourceCode: "https://github.com/Perfection06/Theater-Management-System.git", 
     },
     {
       title: "Tutor Management System",
@@ -55,8 +55,8 @@ export default function Projects() {
         { name: "PHP", icon: "/php.png" },
         { name: "MySQL", icon: "/MySQL.png" },
       ],
-      screenshots: [], // Add paths if available
-      sourceCode: "#", // Replace with actual GitHub link
+      screenshots: ["/TMS/Login.png", "/TMS/Admin Panel.png", "/TMS/Class Student.png", "/TMS/Course Student.png"], 
+      sourceCode: "https://github.com/Perfection06/Tutor-Management-System---Individual.git", 
     },
     {
       title: "Computer Shop System",
@@ -69,8 +69,8 @@ export default function Projects() {
         { name: "C#", icon: "/c-sharp.png" },
         { name: "Microsoft SQL Server", icon: "/Microsoft SQL Server.png" },
       ],
-      screenshots: [], // Add paths if available
-      sourceCode: "#", // Replace with actual GitHub link
+      screenshots: ["/TechFix/Login.png", "/TechFix/Admin Dashboard.png", "/TechFix/Manager Dashboard.png", "/TechFix/Supplier Dashboard.png"], // Add paths if available
+      sourceCode: "https://github.com/Perfection06/Techfix---Computer-Shop-System.git", // Replace with actual GitHub link
     },
     {
       title: "Salon System",
@@ -84,8 +84,8 @@ export default function Projects() {
         { name: "Bootstrap", icon: "/bootstrap.png" },
         { name: "MySQL", icon: "/MySQL.png" },
       ],
-      screenshots: [], // Add paths if available
-      sourceCode: "#", // Replace with actual GitHub link
+      screenshots: ["/Saloon/Home.png", "/Saloon/Admin Panel.png", "/Saloon/Staff Dashboard.png", "/Saloon/Customer Panel.png"], // Add paths if available
+      sourceCode: "https://github.com/Perfection06/Ivory-Glow---Saloon-Management-System.git", // Replace with actual GitHub link
     },
   ];
 
@@ -273,14 +273,6 @@ export default function Projects() {
                               Screenshot Placeholder
                             </div>
                           )}
-                          <motion.div
-                            className="absolute inset-0 bg-black/50 opacity-0 flex items-center justify-center text-white text-center p-4"
-                            initial={{ opacity: 0 }}
-                            whileHover={{ opacity: 1 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            {proj.shortDescription}
-                          </motion.div>
                         </motion.div>
                       </DialogTrigger>
                       <DialogContent

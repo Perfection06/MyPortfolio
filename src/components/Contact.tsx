@@ -1,6 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
-import React from "react";
+
 
 export default function Contact() {
   const contactDetails = {

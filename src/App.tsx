@@ -15,7 +15,6 @@ function App() {
       <Experience />
       <Projects />
       <Contact />
-      {/* Future sections: About, Projects, Contact */}
     </div>
   );
 }
